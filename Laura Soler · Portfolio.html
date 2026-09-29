@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laura Soler · Comunicación como motor de cambio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--ink:#1b1530;--soft:#f4f0fa;--mut:#5d5675;--violet:#6b3fa0;--coral:#ff5a5f;--sun:#ffc93c;--teal:#14b8a6;--card:#ffffff;--line:#e3dcf0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150f24;--ink:#f6f2ff;--soft:#211838;--mut:#b9aed4;--card:#1c1430;--line:#3a2d5c}}
+:root[data-theme="dark"]{--bg:#150f24;--ink:#f6f2ff;--soft:#211838;--mut:#b9aed4;--card:#1c1430;--line:#3a2d5c}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 'DM Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque','DM Sans',sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+nav{display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:space-between;align-items:center;padding:18px clamp(18px,5vw,64px)}
+nav b{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;color:var(--violet)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav b{color:#c9a8ff}}
+nav div{display:flex;gap:18px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:500}
+nav a:hover{color:var(--coral)}
+section{padding:clamp(48px,8vw,96px) clamp(18px,5vw,64px);max-width:1180px;margin:0 auto}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(44px,8vw,96px);font-weight:800;letter-spacing:-.03em}
+.hero p{max-width:52ch;color:var(--mut);font-size:19px}
+.btn{display:inline-block;background:var(--violet);color:#fff;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:700 16px 'DM Sans',sans-serif}
+.btn:hover{background:var(--coral)}
+.mixer{background:var(--soft);border-radius:28px;padding:22px;border:1px solid var(--line)}
+.stage{height:190px;position:relative;overflow:hidden;border-radius:18px;background:var(--bg);margin-bottom:18px}
+.blob{position:absolute;border-radius:50%;mix-blend-mode:multiply;transition:all .25s;opacity:.9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .blob{mix-blend-mode:screen;opacity:.75}}
+.row{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center;margin:8px 0;font-weight:500;font-size:15px}
+input[type=range]{width:100%;height:28px;accent-color:var(--violet)}
+.mixer small{color:var(--mut);display:block;margin-top:8px}
+h2{font-size:clamp(32px,5vw,54px);font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
+.lead{max-width:62ch;color:var(--mut);margin:0 0 30px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:9px 18px;border-radius:999px;font-weight:700;font-size:15px;color:#1b1530}
+.c1{background:var(--sun)}.c2{background:var(--coral);color:#fff}.c3{background:var(--teal)}.c4{background:#c9a8ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:10px;min-height:190px}
+.card h3{font-size:24px}
+.card p{margin:0;color:var(--mut);font-size:15.5px}
+.tag{align-self:flex-start;padding:4px 12px;border-radius:999px;font-size:13px;font-weight:700;color:#1b1530}
+.card.k1{border-color:var(--coral)}.card.k2{border-color:var(--sun)}.card.k3{border-color:var(--teal)}.card.k4{border-color:var(--violet)}
+.music{background:var(--violet);color:#fff;max-width:none;border-radius:0}
+.music .in{max-width:1180px;margin:0 auto}
+.music .lead{color:#e6d9fb}
+.music .card{background:#4b2a78;border-color:#8b63c4;color:#fff}
+.music .card p{color:#e6d9fb}
+.music .btn{background:var(--sun);color:#1b1530}
+.now{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:26px;padding:18px 22px;border-radius:20px;background:#3a2060}
+.game{background:var(--soft);border-radius:28px;padding:clamp(20px,4vw,40px);border:1px solid var(--line)}
+.step{margin:18px 0}
+.step h3{font-size:20px;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{padding:11px 18px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:500 15px 'DM Sans',sans-serif;cursor:pointer}
+.opt[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#1b1530;font-weight:700}
+.out{margin-top:22px;padding:22px;border-radius:20px;background:var(--card);border:2px dashed var(--coral);min-height:96px}
+.out strong{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;line-height:1.15;display:block}
+.meter{height:12px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:14px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--coral),var(--sun),var(--teal));transition:width .5s}
+footer{padding:50px clamp(18px,5vw,64px);text-align:center;color:var(--mut)}
+footer a{color:var(--violet);font-weight:700}
+@media (max-width:820px){.hero{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav>
+<b>Laura Soler</b>
+<div><a href="#trabajos">Trabajos</a><a href="#musica">Música</a><a href="#juego">Juego</a><a href="#contacto">Contacto</a></div>
+</nav>
+
+<section class="hero">
+<div>
+<h1>Historias que cambian cosas.</h1>
+<p>Soy Laura, comunicadora audiovisual y publicista. Diseño estrategias, imágenes, vídeos y contenidos que van más allá de vender un producto: buscan un mundo más justo e igualitario.</p>
+<p><a class="btn" href="#trabajos">Ver mis trabajos</a></p>
+</div>
+<div class="mixer" aria-label="Mesa de mezclas de mis habilidades">
+<div class="stage" aria-hidden="true">
+<div class="blob" id="b1" style="background:var(--sun);left:8%;top:12%"></div>
+<div class="blob" id="b2" style="background:var(--coral);left:30%;top:30%"></div>
+<div class="blob" id="b3" style="background:var(--teal);left:50%;top:8%"></div>
+<div class="blob" id="b4" style="background:#c9a8ff;left:62%;top:34%"></div>
+</div>
+<div class="row"><label for="s1">Estrategia</label><input type="range" id="s1" min="20" max="100" value="70"></div>
+<div class="row"><label for="s2">Diseño</label><input type="range" id="s2" min="20" max="100" value="60"></div>
+<div class="row"><label for="s3">Vídeo</label><input type="range" id="s3" min="20" max="100" value="55"></div>
+<div class="row"><label for="s4">Contenido</label><input type="range" id="s4" min="20" max="100" value="75"></div>
+<small>Mueve los faders: cada proyecto necesita otra mezcla.</small>
+</div>
+</section>
+
+<section id="sobre">
+<h2>Dinámica, emocional y adaptable</h2>
+<p class="lead">El doble título de Comunicación Audiovisual y Publicidad me da una visión completa: pienso la estrategia, la cuento con narrativas transmedia de mucha carga emocional y la llevo a la pantalla.</p>
+<div class="chips"><span class="chip c1">Estrategia de campañas</span><span class="chip c2">Diseño gráfico</span><span class="chip c3">Edición de vídeo</span><span class="chip c4">Creación de contenido</span><span class="chip c1">Comunicación corporativa</span></div>
+</section>
+
+<section id="trabajos">
+<h2>Trabajos</h2>
+<p class="lead">Campañas y proyectos en los que he trabajado. Cada tarjeta enlazará a su caso completo.</p>
+<div class="grid">
+<article class="card k1"><span class="tag c2">Campaña</span><h3>El papel de la FEDE</h3><p>Añade aquí una frase con el reto, tu rol y el resultado.</p></article>
+<article class="card k2"><span class="tag c1">Campaña</span><h3>Destino Iberia</h3><p>Añade aquí una frase con el reto, tu rol y el resultado.</p></article>
+<article class="card k3"><span class="tag c3">Campaña</span><h3>Run and Friends</h3><p>Añade aquí una frase con el reto, tu rol y el resultado.</p></article>
+<article class="card k4"><span class="tag c4">Campaña</span><h3>Burbuja SPOT</h3><p>Añade aquí una frase con el reto, tu rol y el resultado.</p></article>
+</div>
+</section>
+
+<section class="music" id="musica">
+<div class="in">
+<h2>Proyectos con banda sonora</h2>
+<p class="lead">Mi laboratorio personal: campañas ficticias creadas desde la música, con estrategia, diseño, vídeo y contenido.</p>
+<div class="grid">
+<article class="card"><span class="tag c1">Ficticio</span><h3>Lanzamiento de un single</h3><p>Plan de campaña, portada, teaser en vídeo y calendario de contenidos para un artista emergente.</p></article>
+<article class="card"><span class="tag c2">Ficticio</span><h3>Gira de una banda</h3><p>Identidad visual, cartelería y mini-serie en redes para una gira por salas pequeñas.</p></article>
+<article class="card"><span class="tag c3">Ficticio</span><h3>Festival por el cambio</h3><p>Marca, narrativa transmedia y campaña de participación juvenil alrededor de un festival.</p></article>
+</div>
+<div class="now"><span>Ahora en bucle: <b>La Fúmiga</b></span><a class="btn" href="https://open.spotify.com/track/3W435m3oSVo30tu1ndbV0G" target="_blank" rel="noopener">Escuchar en Spotify</a></div>
+</div>
+</section>
+
+<section id="juego">
+<h2>Juego: monta una campaña</h2>
+<p class="lead">Creo en la comunicación como motor de cambio y en que la juventud puede lograrlo desde el presente. Elige tres piezas y mira qué campaña sale.</p>
+<div class="game">
+<div class="step"><h3>Causa</h3><div class="opts" data-k="cause">
+<button class="opt" aria-pressed="false" data-v="Igualdad real">Igualdad real</button>
+<button class="opt" aria-pressed="false" data-v="Salud mental joven">Salud mental joven</button>
+<button class="opt" aria-pressed="false" data-v="Participación juvenil">Participación juvenil</button></div></div>
+<div class="step"><h3>Canal</h3><div class="opts" data-k="chan">
+<button class="opt" aria-pressed="false" data-v="un vídeo corto">Vídeo corto</button>
+<button class="opt" aria-pressed="false" data-v="una canción">Canción</button>
+<button class="opt" aria-pressed="false" data-v="una acción en la calle">Acción en la calle</button></div></div>
+<div class="step"><h3>Emoción</h3><div class="opts" data-k="emo">
+<button class="opt" aria-pressed="false" data-v="humor">Humor</button>
+<button class="opt" aria-pressed="false" data-v="ternura">Ternura</button>
+<button class="opt" aria-pressed="false" data-v="rabia bonita">Rabia bonita</button></div></div>
+<div class="out" aria-live="polite"><strong id="res">Elige una opción en cada paso.</strong><div class="meter"><i id="bar"></i></div><p id="sub" style="margin:10px 0 0;color:var(--mut)"></p></div>
+<p><button class="btn" id="reset" type="button">Empezar de nuevo</button></p>
+</div>
+</section>
+
+<footer id="contacto">
+<h2 style="color:var(--ink)">¿Hacemos algo juntas?</h2>
+<p><a href="mailto:laurasolbal@gmail.com">laurasolbal@gmail.com</a> · <a href="tel:+34657300900">+34 657 300 900</a></p>
+</footer>
+
+<script>
+(function(){
+var b=[1,2,3,4].map(function(i){return document.getElementById('b'+i)});
+function upd(){[1,2,3,4].forEach(function(i){var v=+document.getElementById('s'+i).value,el=b[i-1],s=v*1.15;el.style.width=s+'px';el.style.height=s+'px'})}
+[1,2,3,4].forEach(function(i){document.getElementById('s'+i).addEventListener('input',upd)});upd();
+var sel={};
+var cause={"Igualdad real":"Nadie se queda atrás","Salud mental joven":"Hablar también es cuidar","Participación juvenil":"El futuro se vota hoy"};
+function render(){
+var r=document.getElementById('res'),bar=document.getElementById('bar'),sub=document.getElementById('sub'),n=Object.keys(sel).length;
+bar.style.width=(n*33.4)+'%';
+if(n<3){r.textContent='Elige una opción en cada paso.';sub.textContent='';return}
+r.textContent='“'+cause[sel.cause]+'”';
+sub.textContent='Campaña sobre '+sel.cause.toLowerCase()+', contada con '+sel.emo+' a través de '+sel.chan+'. Impacto: máximo.'}
+document.querySelectorAll('.opts').forEach(function(g){
+g.addEventListener('click',function(e){var t=e.target.closest('.opt');if(!t)return;
+g.querySelectorAll('.opt').forEach(function(o){o.setAttribute('aria-pressed','false')});
+t.setAttribute('aria-pressed','true');sel[g.dataset.k]=t.dataset.v;render()})});
+document.getElementById('reset').addEventListener('click',function(){sel={};document.querySelectorAll('.opt').forEach(function(o){o.setAttribute('aria-pressed','false')});render()});
+})();
+</script>
+</body>
+</html>
